@@ -1,0 +1,15 @@
+<h1>Learning Routing and Navigation</h1>
+<br>
+<!-- creating routing cli code= ng new routing-demo --routing -->
+<!--creating component for routing= ng g c department-list -it -is  -->
+<!--configure routing on app-routing.module.ts and app.module.ts.Then use <router-outlet></router-outlet> as a view for the component-->
+<!--here routerLinkActive directs toward global css file -->
+<nav>
+<a href="/departments" routerLinkActive="active">Departments</a>
+<a href="/employees" routerLinkActive="active">Employees</a>
+
+
+</nav>
+    <router-outlet></router-outlet> <!--routed views goes in this tag-->
+    
+    

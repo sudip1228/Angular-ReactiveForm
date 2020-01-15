@@ -1,0 +1,66 @@
+<h1>Template Reference variable</h1>
+
+<input type="text" #myinput>
+<button (click)="log(myinput.value)">click</button>
+
+<h1>ngswitch</h1>
+<div [ngSwitch]="color">
+
+    <div *ngSwitchCase="'red'">red</div>
+      <div *ngSwitchCase="'green'">green</div>
+        <div *ngSwitchCase="'blue'">blue</div>
+        <div *ngSwitchDefault>pick again</div>
+
+</div>
+<h1>Component Interaction.Displaying parent properties in child component and vice-versa</h1>
+
+
+<app-child (childEvent)="message=$event" [parentData]="name"></app-child><!--here $event captures the message from child component and puts the data into "message" property of out parent typscript-->
+
+<p>this is {{message}}</p>
+
+<h2> learning pipes. "|" denotes the the pipe.pipe only display value on the view but does not change property in the logic </h2>
+<p>{{name| lowercase}}</p>
+<p>{{name| uppercase}}</p>
+<p>{{name|titlecase}}</p>
+<p>{{name|slice:3}}</p>
+<p>{{name|slice:3:5}}</p>
+<p>{{person|json}}</p>
+<!--follwing is a number pipes.here in first line '1' is minimum number of digit required,'2' is minimum nunber of digit required after decimal and 2 is maximum number of digit required after decimal-->
+<p>{{5.678 | number:'1.2-3'}}</p>
+<p>{{5.678 | number:'3.4-5'}}</p>
+<p>{{5.678 | number:'3.1-2'}}</p>
+<!--percent pipes-->
+<p>{{0.25 | percent}}</p>
+
+<!--currency pipe-->
+<p>{{0.25 | currency}}</p>
+<p>{{0.25 | currency:'GBP'}}</p>
+<p>{{0.25 | currency:'EUR':'code'}}</p>
+
+<!--date pipe-->
+
+<p>{{date}}</p>
+<p>{{date|date:'short'}}</p>
+<p>{{date|date:'shortDate'}}</p>
+<p>{{date|date:'shortTime'}}</p>
+<p>{{date|date:'mediumTime'}}</p>
+<p>{{date|date:'longDate'}}</p>
+
+<!--service  steps for creating and executing service 1)ng g s nameoffile 2))register service on app.module 
+  3)inject dependency on constructor 4)get value of the service on ngonit method 5)display on view  -->
+
+<!--Learning to fetch http data.follwing are the steps:
+  1)import httpClientModule in app.module
+  2)Inject http dependency on service class on constructor
+  3)Receive observable which is just a http reponse from the database , and cast observable to an array
+  4)Subscribe the observable from the components eg employee list and employee detail
+  5)Assign array to local variable and finnal display the output on view
+
+-->
+
+
+  <app-employee-detail></app-employee-detail>
+  <br>
+  <app-employee-list></app-employee-list>
+
