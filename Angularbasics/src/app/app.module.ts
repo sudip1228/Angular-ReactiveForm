@@ -20,7 +20,7 @@ import {HttpClientModule} from '@angular/common/http';//required to get observab
     BrowserModule,
     HttpClientModule//registering http
   ],
-  providers: [EmployeeService],//register service by giving class name of service inside square box
+  providers: [EmployeeService],//register service by giving class name of service inside square box.You can also register service on component by using keyword as "providers:" in declarators which will allow you to use service only on that component.
   bootstrap: [AppComponent]
 })
 export class AppModule { }
